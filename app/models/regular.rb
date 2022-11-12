@@ -10,4 +10,4 @@ class Regular < ApplicationRecord
   # end
 end
 
-# condition if image is url or uploaded
+# condition if image is url or uploaded\
