@@ -1,8 +1,10 @@
 <div class="container">
   <h1>Drunks</h1>
   <%= link_to "Go back home", root_path %>
-  <%# <%= link_to "Register a drunk©", regulars_path_new %> %>
-  <% @regulars.each do |regular| %>
-    <%= %>
-  <% end %>
+  <%= link_to "Register a drunk©",  new_regular_path %>
+   <% @regulars.each do |regular| %>
+    <div class="card w-25">
+       <h2><%= link_to regular.name, regular_path(regular) %></h2>
+    </div>
+   <% end %>
 </div>

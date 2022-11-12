@@ -1,0 +1,9 @@
+<div class="container">
+  <h1>Register Drunk Offender©</h1>
+  <%= simple_form_for @regular do |f| %>
+    <%= f.input :name %>
+    <%= f.input :favorite_drink, value: "None" %>
+    <%= f.input :photo, as: :file %>
+    <%= f.submit %>
+  <% end %>
+</div>
