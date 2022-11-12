@@ -1,0 +1,9 @@
+<div class="container">
+  <ol>
+    <h1>Pubs!</h1>
+    <% @pubs.each do |pub|%>
+      <li><%= pub.name %></li>
+    <% end %>
+  </ol>
+  <%= link_to "Back to home", root_path %>
+</div>

@@ -10,8 +10,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 0) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_12_053533) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "pubs", force: :cascade do |t|
+    t.string "name"
+    t.string "location"
+    t.integer "rating"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "regulars", force: :cascade do |t|
+    t.string "name"
+    t.string "favorite_drink"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "img_url"
+  end
+
+  create_table "spies", force: :cascade do |t|
+    t.string "note"
+    t.bigint "pub_id", null: false
+    t.bigint "regular_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["pub_id"], name: "index_spies_on_pub_id"
+    t.index ["regular_id"], name: "index_spies_on_regular_id"
+  end
+
+  add_foreign_key "spies", "pubs"
+  add_foreign_key "spies", "regulars"
 end
