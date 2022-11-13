@@ -1,12 +1,10 @@
 <div class="container">
     <h1><%= @regular.name %></h1>
     <p>Favorite drink: <%= @regular.favorite_drink %></p>
-    <%= image_tag @regular.img_url, alt: "Url", class: "w-25" %>
+    <%= regular.photo.attached? ? cl_image_path(regular.photo.key) : https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPQDYau3Hs4-xw1i8jVSUY4BlF4FLmg8lQqg&usqp=CAU %>
     <%= link_to "Back to drunks", regulars_path %>
     <%= link_to "Add a note", new_regular_spy_path(@regular) %>
     <% @regular.pubs.each do |pub|%>
     <%= pub.name %>
     <% end %>
 </div>
-
-<div class="item card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= list.photo.attached? ? cl_image_path(list.photo.key) : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPQDYau3Hs4-xw1i8jVSUY4BlF4FLmg8lQqg&usqp=CAU' %>)">
