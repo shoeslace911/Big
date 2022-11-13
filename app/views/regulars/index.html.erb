@@ -1,10 +1,12 @@
 <div class="container">
-  <h1>Drunks</h1>
+  <h1>Regulars</h1>
   <%= link_to "Go back home", root_path %>
   <%= link_to "Register a drunk©",  new_regular_path %>
    <% @regulars.each do |regular| %>
     <div class="card w-25">
        <h2><%= link_to regular.name, regular_path(regular) %></h2>
+       <%= regular.photo.attached? ? cl_image_tag(regular.photo.key, alt: "Drunk's photo") :   image_tag("https://previews.123rf.com/images/anatoliyberislavskiy/anatoliyberislavskiy1802/anatoliyberislavskiy180200016/94733150-drunk-man-fallen-asleep-on-the-ground.jpg", alt: "Drunkard's photo") %>
+       <%= regular.favorite_drink %>
     </div>
    <% end %>
 </div>

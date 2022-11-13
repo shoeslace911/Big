@@ -1,10 +1,11 @@
-<div class="container">
+<div class="container d-flex flex-column"">
     <h1><%= @regular.name %></h1>
     <p>Favorite drink: <%= @regular.favorite_drink %></p>
-    <%= regular.photo.attached? ? cl_image_path(regular.photo.key) : https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPQDYau3Hs4-xw1i8jVSUY4BlF4FLmg8lQqg&usqp=CAU %>
+    <%= @regular.photo.attached? ? cl_image_tag(@regular.photo.key, alt: "Regular's photo") : image_tag("https://previews.123rf.com/images/anatoliyberislavskiy/anatoliyberislavskiy1802/anatoliyberislavskiy180200016/94733150-drunk-man-fallen-asleep-on-the-ground.jpg", alt: "Drunkard's photo", class: "w-50") %>
     <%= link_to "Back to drunks", regulars_path %>
-    <%= link_to "Add a note", new_regular_spy_path(@regular) %>
+    <%= link_to "Add a pub", new_regular_spy_path(@regular) %>
+    <h2>Regular at:</h2>
     <% @regular.pubs.each do |pub|%>
-    <%= pub.name %>
+     <%= pub.name %>
     <% end %>
 </div>

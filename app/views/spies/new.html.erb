@@ -2,7 +2,7 @@
   <h1>Registered drunk offender</h1>
   <p>Add an info for <%= @regular.name %></p>
   <%= simple_form_for [@regular, @spy] do |f| %>
-    <%= f.input :note %>
+    <%= f.input :note, placeholder: "None if nothing" %>
     <%= f.association :pub,  collection: @pubs %>
     <%= f.submit :Submit %>
   <% end %>

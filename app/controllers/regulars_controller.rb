@@ -4,6 +4,7 @@ class RegularsController < ApplicationController
   end
 
   def show
+
     @regular = Regular.find(params[:id])
   end
 
@@ -14,7 +15,7 @@ class RegularsController < ApplicationController
   def create
     @regular = Regular.new(regular_params)
     if @regular.save
-      redirect_to regular_path(:id)
+      redirect_to regular_path(@regular)
     else
       render :new, status: :unprocessable_entity
     end
