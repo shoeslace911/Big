@@ -4,8 +4,8 @@ class RegularsController < ApplicationController
   end
 
   def show
-
     @regular = Regular.find(params[:id])
+
   end
 
   def new
@@ -19,6 +19,12 @@ class RegularsController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    @regular = Regular.find(params[:id])
+    @regular.destroy
+    redirect_to regular_path
   end
 
   private
