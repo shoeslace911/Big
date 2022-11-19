@@ -9,6 +9,7 @@
     <div class="card w-25 ">
        <%= regular.photo.attached? ? cl_image_tag(regular.photo.key, alt: "Drunk's photo", class:"drunk-img w-100 h-50") :   image_tag("https://previews.123rf.com/images/anatoliyberislavskiy/anatoliyberislavskiy1802/anatoliyberislavskiy180200016/94733150-drunk-man-fallen-asleep-on-the-ground.jpg", alt: "Drunkard's photo", class: "w-100") %>
        <h2><%= link_to regular.name, regular_path(regular) %></h2>
+        <%= link_to "🗑️", regular_path(regular), data: { turbo_method: 'delete', turbo_confirm: "Exterminate #{regular.name}?" } %>
     </div>
    <% end %>
    </div>
