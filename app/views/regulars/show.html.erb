@@ -1,20 +1,21 @@
 <div class="container d-flex flex-column"">
-    <h1><%= @regular.name %></h1>
-    <p>Favorite drink: <%= @regular.favorite_drink %></p>
-    <%= @regular.photo.attached? ? cl_image_tag(@regular.photo.key, alt: "Regular's photo", class: "w-50") : image_tag("https://previews.123rf.com/images/anatoliyberislavskiy/anatoliyberislavskiy1802/anatoliyberislavskiy180200016/94733150-drunk-man-fallen-asleep-on-the-ground.jpg", alt: "Drunkard's photo", class: "w-50") %>
-    <%= link_to "Back to drunks", regulars_path %>
-    <%= link_to "Add a pub", new_regular_spy_path(@regular) %>
-    <h2>Regular at:</h2>
-    <%= "#{@regular.name} ain't a regular at any pub... yet" if @regular.pubs.empty?  %>
-    <ul>
-      <% @regular.pubs.each do |pub|%>
+  <h1><%= @regular.name %></h1>
+  <%= link_to "Back to drunks", regulars_path %>
+  <p>Favorite drink: <%= @regular.favorite_drink %></p>
+  <%= @regular.photo.attached? ? cl_image_tag(@regular.photo.key, alt: "Regular's photo", class: "w-50") : image_tag("https://previews.123rf.com/images/anatoliyberislavskiy/anatoliyberislavskiy1802/anatoliyberislavskiy180200016/94733150-drunk-man-fallen-asleep-on-the-ground.jpg", alt: "Drunkard's photo", class: "w-50") %>
+  <%= link_to "Add a pub", new_regular_spy_path(@regular) %>
+  <%= link_to "Edit this drunk", edit_regular_path %>
+  <h2>Regular at:</h2>
+  <%= "#{@regular.name} ain't a regular at any pub... yet" if @regular.pubs.empty?  %>
+  <ul>
+    <% @regular.pubs.each do |pub|%>
       <li><%= pub.name %></li>
-      <% end %>
-    </ul>
-    <ul>
+    <% end %>
+  </ul>
+  <ul>
     <h1>Note: </h1>
     <% @regular.spies.each do |spy| %>
       <li><%= spy.note %></li>
     <% end %>
-    </ul>
+  </ul>
 </div>
